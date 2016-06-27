@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{report}
+
+% Packages that we are going to use
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{combelow}% provides \cb to place comma below character
+\usepackage{newunicodechar}
+\usepackage[romanian]{babel}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage[export]{adjustbox} 
+\usepackage{geometry}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage{indentfirst}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[toc,page]{appendix}
+\usepackage{subcaption}
+\usepackage{makeidx}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=30mm,
+	top=25mm,
+	bottom=30mm,
+	right=25mm,
+}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.35} 
+\renewcommand\appendixtocname{Anexe}
+\renewcommand\appendixname{Anexe}
+\renewcommand\appendixpagename{Anexe}
+
+\graphicspath{{images/}{../images/}}
+
+\newunicodechar{ș}{\cb{s}}
+\newunicodechar{Ș}{\cb{S}}
+\newunicodechar{ț}{\cb{t}}
+\newunicodechar{Ț}{\cb{T}}
+
+\newtheorem{remark}{Observație}[chapter]
+\newtheorem{definition}{Definiție}[chapter]
+\newtheorem{lemma}{Lemă}[chapter]
+\newtheorem{theorem}{Teoremă}[chapter]
+
+\makeindex
+
+\begin{document}
+
+\newgeometry{margin=1in}
+\subfile{sections/title}
+\restoregeometry
+
+\tableofcontents
+
+\newpage
+
+\subfile{sections/abstract}
+\subfile{sections/introduction}
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{bibliography/list} 
+
+\printindex
+\subfile{sections/appendix}
+
+\end{document}
